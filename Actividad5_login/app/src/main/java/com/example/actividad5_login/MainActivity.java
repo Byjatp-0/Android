@@ -1,5 +1,6 @@
 package com.example.actividad5_login;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 if(recordar){
                     tCorreo.setText("correo@correo.com");
                     tContraseña.setText("123");
+
                 }
+
             }else{
                 tMensaje.setText("Correo o contraseña incorrectos");
             }
