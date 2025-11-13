@@ -7,18 +7,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
-
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.recView), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        recyclerView = findViewById(R.id.recView);
+
+        Videojuego[] videojuegos = new Videojuego[3];
+        videojuegos[0] = new Videojuego("LoL",  "lol.jpg");
+        videojuegos[1] = new Videojuego("Zenless Zone Zero", "zzz.png");
+        videojuegos[2] = new Videojuego("Arc Raiders", "arc_riders.jpg");
+        videojuegos[3] = new Videojuego("Dispatch", "dispatch.jpg");
+        
+
+        Adaptador adapter = new Adaptador(videojuegos);
+
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        recyclerView.setAdapter(adapter);
+
     }
 }
