@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recView);
 
-        Videojuego[] videojuegos = new Videojuego[3];
+        Videojuego[] videojuegos = new Videojuego[4];
         videojuegos[0] = new Videojuego("LoL",  "lol.jpg");
         videojuegos[1] = new Videojuego("Zenless Zone Zero", "zzz.png");
         videojuegos[2] = new Videojuego("Arc Raiders", "arc_riders.jpg");

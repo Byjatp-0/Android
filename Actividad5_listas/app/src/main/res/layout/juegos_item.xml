@@ -9,63 +9,79 @@
         android:id="@+id/lol"
         android:layout_width="124dp"
         android:layout_height="130dp"
-        app:srcCompat="@drawable/images"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/images" />
 
     <TextView
         android:id="@+id/lolTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="77dp"
         android:text="League of Legends"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="77dp" />
+        app:layout_constraintStart_toEndOf="@+id/lol"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/zzz"
         android:layout_width="226dp"
         android:layout_height="134dp"
-        app:srcCompat="@drawable/zzz"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="164dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lol"
+        app:srcCompat="@drawable/zzz" />
 
     <TextView
         android:id="@+id/zzzTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="140dp"
         android:text="Zenless Zone Zero"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="236dp" />
+        app:layout_constraintStart_toEndOf="@+id/zzz"
+        app:layout_constraintTop_toBottomOf="@+id/lolTxt" />
 
     <ImageView
         android:id="@+id/arc"
         android:layout_width="118dp"
         android:layout_height="178dp"
-        app:srcCompat="@drawable/arc_riders"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="327dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zzz"
+        app:srcCompat="@drawable/arc_riders" />
 
     <TextView
         android:id="@+id/arTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="144dp"
         android:text="Arc Raiders"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="401dp" />
+        app:layout_constraintStart_toEndOf="@+id/arc"
+        app:layout_constraintTop_toBottomOf="@+id/zzzTxt" />
 
     <ImageView
         android:id="@+id/dispatch"
         android:layout_width="242dp"
         android:layout_height="141dp"
-        app:srcCompat="@drawable/dispatch"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="538dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arc"
+        app:srcCompat="@drawable/dispatch" />
 
     <TextView
         android:id="@+id/dispatchTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="161dp"
         android:text="Dispatch"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="580dp" />
+        app:layout_constraintStart_toEndOf="@+id/dispatch"
+        app:layout_constraintTop_toBottomOf="@+id/arTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
