@@ -2,6 +2,7 @@ package com.example.actividad7_sonidos;
 
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Layout;
@@ -20,13 +21,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button botonPlay, botonStop, botonPause, botonCargar, botonSeekTo, botonRelease, botonColor;
-    private TextView txtTiempo;
+    private Button botonPlay, botonPause, botonColor, botonPelicano, botonTwitter, botonDiscord, botonBufalo;
+    private TextView txtTiempo, txtTiempoFinal;
     private SeekBar lineaTiempo;
     private MediaPlayer mediaPlayer;
-    private EditText txtSeekTo;
     private ConstraintLayout layout; //Tiene que ser Constraint porque es el tipo de layout que he usado
     private boolean negro = false;
+    private SoundPool soundPool;
 
 
     @Override
@@ -36,14 +37,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         botonPlay = findViewById(R.id.botonPlay);
-        botonStop = findViewById(R.id.botonStop);
         botonPause = findViewById(R.id.botonPause);
-        botonCargar = findViewById(R.id.botonCargar);
-        botonSeekTo = findViewById(R.id.botonSeekTo);
-        botonRelease = findViewById(R.id.botonRelease);
         botonColor = findViewById(R.id.botonColor);
+        botonBufalo = findViewById(R.id.botonBufalo);
+        botonDiscord = findViewById(R.id.botonDiscord);
+        botonPelicano = findViewById(R.id.botonPelicano);
+        botonTwitter = findViewById(R.id.botonTwitter);
         layout = findViewById(R.id.main);
         txtTiempo = findViewById(R.id.txtTiempo);
+        txtTiempoFinal = findViewById(R.id.txtTiempoFinal);
         lineaTiempo = findViewById(R.id.lineaTiempo);
         mediaPlayer = MediaPlayer.create(this, R.raw.atlantis);
 
@@ -51,21 +53,33 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.start();
         });
 
-        botonStop.setOnClickListener(v ->{
-            mediaPlayer.stop();
-        });
-
         botonPause.setOnClickListener(v ->{
             mediaPlayer.pause();
         });
 
-        botonRelease.setOnClickListener(v ->{
-            mediaPlayer.release();
+        soundPool = new SoundPool.Builder().setMaxStreams(4).build();
+
+        int sonidoBufalo = soundPool.load(this, R.raw.buffalo, 1);
+        int sonidoDiscord = soundPool.load(this, R.raw.discord_notification, 1);
+        int sonidoTwitter = soundPool.load(this, R.raw.twitter, 1);
+        int sonidoPelicano = soundPool.load(this, R.raw.pelicano, 1);
+
+        botonPelicano.setOnClickListener(v ->{
+            soundPool.play(sonidoPelicano, 1, 1, 1, 0, 1);
         });
 
-        botonCargar.setOnClickListener(v ->{
-            mediaPlayer = MediaPlayer.create(this, R.raw.atlantis);
+        botonTwitter.setOnClickListener(v ->{
+            soundPool.play(sonidoTwitter, 1, 1, 1, 0, 1);
         });
+
+        botonDiscord.setOnClickListener(v ->{
+            soundPool.play(sonidoDiscord, 1, 1, 1, 0, 1);
+        });
+
+        botonBufalo.setOnClickListener(v ->{
+            soundPool.play(sonidoBufalo, 1, 1, 1, 0, 1);
+        });
+
 
         botonColor.setOnClickListener(v ->{
             if(negro){
@@ -77,13 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 negro = true;
 
             }
-        });
-
-        txtSeekTo = findViewById(R.id.txtSeekTo);
-        botonSeekTo = findViewById(R.id.botonSeekTo);
-        botonSeekTo.setOnClickListener(v ->{
-            int p = Integer.parseInt(txtSeekTo.getText().toString());
-            mediaPlayer.seekTo(p);
         });
 
         //Creación barra progreso
@@ -107,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
                 int segundos = mediaPlayer.getCurrentPosition() / 1000 % 60; //Se parte entre sesenta porque de los segundos se quiere el resto
                 String tiempo = String.format("%02d:%02d", minutos, segundos);
                 txtTiempo.setText(tiempo);
+
+                //Para que muestre el tiempo total
+                int tiempoRestante = mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition();
+                int minutosTotal = tiempoRestante / 1000 / 60;
+                int segundosTotal = tiempoRestante / 1000 % 60;
+                String tiempoTotal = String.format("-%02d:%02d", minutosTotal, segundosTotal);
+                txtTiempoFinal.setText(tiempoTotal);
 
                 //Se actualiza cada segundo
                 handler.postDelayed(this,1000);
