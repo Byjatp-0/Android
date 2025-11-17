@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="198dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="272dp"
+        android:fontFamily="@font/helvetica"
+        android:text="MediaPlayer"
+        android:textColor="#191414"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonStop"
+        android:layout_width="92dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="#191414"
+        android:text="Stop"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/botonPlay"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/botonCargar"
+        android:layout_width="67dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="198dp"
+        android:layout_marginTop="43dp"
+        android:backgroundTint="#191414"
+        app:icon="@android:drawable/ic_menu_upload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:iconTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/botonStop" />
+
+    <Button
+        android:id="@+id/botonSeekTo"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#191414"
+        android:text="Seek to..."
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonRelease" />
+
+    <Button
+        android:id="@+id/botonPause"
+        android:layout_width="67dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="#191414"
+        app:icon="@android:drawable/ic_media_pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:iconTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <SeekBar
+        android:id="@+id/lineaTiempo"
+        android:layout_width="379dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#191414"
+        android:progressBackgroundTint="#191414"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonSeekTo" />
+
+    <Button
+        android:id="@+id/botonPlay"
+        android:layout_width="67dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="#1db954"
+        app:icon="@android:drawable/ic_media_next"
+        app:iconTint="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/botonPause"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/botonRelease"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="461dp"
+        android:backgroundTint="#191414"
+        android:text="Release"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/botonCargar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineaTiempo" />
+
+    <EditText
+        android:id="@+id/txtSeekTo"
+        android:layout_width="247dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="41dp"
+        android:backgroundTint="#191414"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonCargar" />
+
+    <Button
+        android:id="@+id/botonColor"
+        android:layout_width="67dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#EFE8E8"
+        app:icon="@drawable/sol_tema_blanco"
+        app:iconTint="#191414"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
