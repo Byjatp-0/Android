@@ -1,5 +1,6 @@
 package com.example.actividad6_login;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button botonContinuar;
     private Switch switchRecordar;
     private TextView tMensaje;
+    private String correoString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +50,16 @@ public class MainActivity extends AppCompatActivity {
                         tMensaje.setText("Contraseña correcta");
                         tContraseña.setText("");
                         tCorreo.setText("");
-
+                        correo = "correo@correo.com";
                         if(recordar){
                             tCorreo.setText("correo@correo.com");
                             tContraseña.setText("123");
 
                         }
+                        Intent intent = new Intent(this, SegundaPantalla.class);
+                        intent.putExtra("correo", correo);
+                        startActivity(intent);
+
 
                     }else{
                         tMensaje.setText("Correo o contraseña incorrectos");
